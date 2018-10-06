@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 4.6.6deb4
--- https://www.phpmyadmin.net/
---
--- Host: localhost:3306
--- Generation Time: Oct 05, 2018 at 01:33 PM
--- Server version: 10.1.23-MariaDB-9+deb9u1
--- PHP Version: 7.0.27-0+deb9u1
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
@@ -45,6 +36,21 @@ CREATE TABLE `Trigrams` (
   `Tag_C` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Sources`
+--
+
+CREATE TABLE `Sources` (
+  `ID` int(11) NOT NULL,
+  `Name` varchar(255) NOT NULL,
+  `Genre` varchar(255) NOT NULL,
+  `Keywords` text NOT NULL,
+  `Description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 --
 -- Indexes for dumped tables
 --
@@ -61,6 +67,14 @@ ALTER TABLE `Dictionary`
 --
 ALTER TABLE `Trigrams`
   ADD PRIMARY KEY (`ID`);
+  
+--
+-- Indexes for table `Sources`
+--
+ALTER TABLE `Sources`
+  ADD PRIMARY KEY (`ID`),
+  ADD UNIQUE KEY `Word` (`Name`);
+  
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -75,4 +89,9 @@ ALTER TABLE `Dictionary`
 -- AUTO_INCREMENT for table `Trigrams`
 --
 ALTER TABLE `Trigrams`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `Sources`
+--
+ALTER TABLE `Sources`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
