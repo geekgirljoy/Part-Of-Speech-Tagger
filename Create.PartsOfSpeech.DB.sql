@@ -13,8 +13,9 @@ USE `PartsOfSpeechTagger`;
 --
 
 CREATE TABLE `Tags` (
-  `ID` int(11) NOT NULL,
+  `Hash` varchar(33) NOT NULL,
   `Tag` varchar(8) NOT NULL,
+  `Count` int(11) NOT NULL,
   `Definition` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -25,16 +26,16 @@ CREATE TABLE `Tags` (
 --
 
 CREATE TABLE `Trigrams` (
-  `ID` int(11) NOT NULL,
+  `Hash` varchar(33) NOT NULL,
   `Count` int(11) NOT NULL,
-  `Word_A` int(11) NOT NULL,
-  `Word_B` int(11) NOT NULL,
-  `Word_C` int(11) NOT NULL,
-  `Tag_A` int(11) NOT NULL,
-  `Tag_B` int(11) NOT NULL,
-  `Tag_C` int(11) NOT NULL
+  `Word_A` varchar(100) NOT NULL,
+  `Word_B` varchar(100) NOT NULL,
+  `Word_C` varchar(100) NOT NULL,
+  `Tag_A` varchar(33) NOT NULL,
+  `Tag_B` varchar(33) NOT NULL,
+  `Tag_C` varchar(33) NOT NULL,
+  `Sources` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
 -- --------------------------------------------------------
 
 --
@@ -42,8 +43,9 @@ CREATE TABLE `Trigrams` (
 --
 
 CREATE TABLE `Words` (
-  `ID` int(11) NOT NULL,
-  `Word` varchar(100) NOT NULL
+  `Hash` varchar(33) NOT NULL,
+  `Word` varchar(100) NOT NULL,
+  `Count` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -54,38 +56,20 @@ CREATE TABLE `Words` (
 -- Indexes for table `Tags`
 --
 ALTER TABLE `Tags`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `Tag` (`Tag`);
+  ADD PRIMARY KEY (`Hash`),
+  ADD UNIQUE KEY `Hash` (`Hash`);
 
 --
 -- Indexes for table `Trigrams`
 --
 ALTER TABLE `Trigrams`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`Hash`),
+  ADD UNIQUE KEY `Hash` (`Hash`);
+
 
 --
 -- Indexes for table `Words`
 --
 ALTER TABLE `Words`
-  ADD PRIMARY KEY (`ID`),
-  ADD UNIQUE KEY `Word` (`Word`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `Tags`
---
-ALTER TABLE `Tags`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
---
--- AUTO_INCREMENT for table `Trigrams`
---
-ALTER TABLE `Trigrams`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
---
--- AUTO_INCREMENT for table `Words`
---
-ALTER TABLE `Words`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+  ADD PRIMARY KEY (`Hash`),
+  ADD UNIQUE KEY `Hash` (`Hash`);
