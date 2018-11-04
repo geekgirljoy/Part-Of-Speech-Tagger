@@ -55,7 +55,7 @@ if ($result->num_rows > 0) {
      
      // Generate Skip-gram hashes
      // A && C
-    $Hash_AC = hash('md5', $row["Word_A"] . $row["Word_C"]);
+     $Hash_AC = hash('md5', $row["Word_A"] . $row["Word_C"]);
      
      // Generate SQL
      $sql_AB = "UPDATE `Trigrams` SET `Hash_AB` = '$Hash_AB' WHERE `Trigrams`.`Hash` = '" . $row["Hash"] . "'";
