@@ -1,7 +1,8 @@
 <?php
 
 /*
-This programm will connect to the PartsOfSpeechTagger database and add 3 additional fields directlyu after the 'Hash' field
+This programm will connect to the PartsOfSpeechTagger database and add 3 additional fields 
+directly after the 'Hash' field.
 
 We need to add 2 fields for 'Bigrams'
 // hash(A && B) 
