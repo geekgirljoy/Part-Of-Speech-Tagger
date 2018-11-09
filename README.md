@@ -39,6 +39,8 @@ If you would like a more thorough guide to this project I have a series of blog 
 
 [Building A Faster Bot](https://geekgirljoy.wordpress.com/2018/10/26/building-a-faster-bot/)
 
+[Adding Bigrams & Skipgrams](https://geekgirljoy.wordpress.com/2018/11/09/adding-bigrams-skipgrams/)
+
 
 
 
