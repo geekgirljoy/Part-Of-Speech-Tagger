@@ -22,7 +22,7 @@ Please note my [Disclaimer](https://github.com/geekgirljoy/Part-Of-Speech-Tagger
 **it is highly recommended that you run this after training from scratch or importing the data into the database.**.
 
 
-* Test.php - COMING SOON!!!
+* [Test.php](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/Test.php)  - COMING SOON!!!
 
 
 # More Reading
