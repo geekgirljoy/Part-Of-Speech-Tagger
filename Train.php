@@ -172,16 +172,24 @@ foreach($training_files as $set_num=>$training_file_set){
   // Echo that we are starting a SQL write
   echo PHP_EOL . 'Writing SQL ' . PHP_EOL;
   
-  // Echo that we are starting Trigrams
+// Echo that we are starting Trigrams
   echo count($trigrams) . ' Trigrams ';
   foreach ($trigrams as $hash=>$trigram){
 
     // Implode the sources array into a comma delimited string
     $Sources = trim(implode(', ', $trigram['sources']));
     
+    $w_a = mysqli_real_escape_string($conn, $trigram['words'][0]);
+    $w_b = mysqli_real_escape_string($conn, $trigram['words'][1]);
+    $w_c = mysqli_real_escape_string($conn, $trigram['words'][2]);
+    
+    $t_a = mysqli_real_escape_string($conn, $trigram['tags'][0]);
+    $t_b = mysqli_real_escape_string($conn, $trigram['tags'][1]);
+    $t_c = mysqli_real_escape_string($conn, $trigram['tags'][2]);
+    
     // Trigrams
     $trigram_sql = 'INSERT INTO `Trigrams` (`Hash`, `Count`, `Word_A`, `Word_B`, `Word_C`, `Tag_A`, `Tag_B`, `Tag_C`, `Sources`) ';
-    $trigram_sql .= "VALUES('$hash', {$trigram['count']}, '{$trigram['words'][0]}', '{$trigram['words'][1]}', '{$trigram['words'][2]}', '{$trigram['tags'][0]}', '{$trigram['tags'][1]}', '{$trigram['tags'][2]}', '$Sources') "; 
+    $trigram_sql .= "VALUES('$hash', {$trigram['count']}, '$w_a', '$w_b', '$w_c', '$t_a', '$t_b', '$t_c', '$Sources') "; 
     $trigram_sql .= 'ON DUPLICATE KEY UPDATE ';
     $trigram_sql .= "`Count` = `Count` + {$trigram['count']}, ";
     $trigram_sql .= "`Sources` = concat(`Sources`, ' $Sources')";    
