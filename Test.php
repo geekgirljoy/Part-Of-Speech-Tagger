@@ -392,18 +392,21 @@ foreach($lexemes as $key=>$lexeme){
  * 
 Sentence: The quick brown fox jumps over the lazy dog. A long-term contract with "zero-liability" protection! Let's think it over.
 
-Tagged Sentence: The/at quick/jj brown/jj fox/unk jumps/nns over/in the/at lazy/unk dog/nn ./. A/at long-term/nn contract/vb with/in "/unk zero-liability/unk "/unk protection/unk !/. Let's/unk think/vb it/ppo over/in ./. 
+Tagged Sentence: The/at quick/jj brown/jj fox/np jumps/nns over/in the/at lazy/jj dog/nn ./. A/at long-term/nn contract/vb with/in "/unk zero-liability/unk "/unk protection/nn-hl !/. Let's/vb+ppo think/vb it/ppo over/in ./. 
 
 Tags: 
-9 unique tags, 24 total.
-unk(7) - 29.17% of the sentence.
+12 unique tags, 24 total.
 at(3) - 12.50% of the sentence.
+jj(3) - 12.50% of the sentence.
 in(3) - 12.50% of the sentence.
 .(3) - 12.50% of the sentence.
-jj(2) - 8.33% of the sentence.
+unk(3) - 12.50% of the sentence.
 nn(2) - 8.33% of the sentence.
 vb(2) - 8.33% of the sentence.
+np(1) - 4.17% of the sentence.
 nns(1) - 4.17% of the sentence.
+nn-hl(1) - 4.17% of the sentence.
+vb+ppo(1) - 4.17% of the sentence.
 ppo(1) - 4.17% of the sentence.
 
 
@@ -418,35 +421,36 @@ jj(1 : 100%)
 jj(2 : 100%) 
 
 [fox]
-unk(1 : 100%) 
+np(6 : 66.666666666667%)
+nn-tl(3 : 33.333333333333%) 
 
 [jumps]
 nns(1 : 100%) 
 
 [over]
-in(520 : 81.504702194357%)
-rp(114 : 17.868338557994%)
-in-hl(4 : 0.6269592476489%) 
+in(522 : 81.5625%)
+rp(114 : 17.8125%)
+in-hl(4 : 0.625%) 
 
 [the]
-at(537 : 100%) 
+at(539 : 100%) 
 
 [lazy]
-unk(1 : 100%) 
+jj(27 : 100%) 
 
 [dog]
 nn(22 : 100%) 
 
 [.]
-.(1589 : 98.756991920447%)
-.-hl(20 : 1.2430080795525%) 
+.(1599 : 98.764669549104%)
+.-hl(20 : 1.2353304508956%) 
 
 [A]
-at(1373 : 97.792022792023%)
-at-hl(26 : 1.8518518518519%)
-nn(2 : 0.14245014245014%)
-np-hl(2 : 0.14245014245014%)
-at-tl-hl(1 : 0.071225071225071%) 
+at(1380 : 97.802976612332%)
+at-hl(26 : 1.8426647767541%)
+nn(2 : 0.1417434443657%)
+np-hl(2 : 0.1417434443657%)
+at-tl-hl(1 : 0.070871722182849%) 
 
 [long-term]
 nn(1 : 100%) 
@@ -469,29 +473,29 @@ unk(1 : 100%)
 unk(1 : 100%) 
 
 [protection]
-unk(1 : 100%) 
+nn-hl(10 : 100%) 
 
 [!]
-.(1 : 100%) 
+.(6 : 100%) 
 
 [Let's]
-unk(1 : 100%) 
+vb+ppo(9 : 100%) 
 
 [think]
-vb(28 : 100%) 
+vb(31 : 100%) 
 
 [it]
-ppo(144 : 72.361809045226%)
-pps(55 : 27.638190954774%) 
+ppo(150 : 71.428571428571%)
+pps(60 : 28.571428571429%) 
 
 [over]
-in(520 : 81.504702194357%)
-rp(114 : 17.868338557994%)
-in-hl(4 : 0.6269592476489%) 
+in(522 : 81.5625%)
+rp(114 : 17.8125%)
+in-hl(4 : 0.625%) 
 
 [.]
-.(1589 : 98.756991920447%)
-.-hl(20 : 1.2430080795525%) 
+.(1599 : 98.764669549104%)
+.-hl(20 : 1.2353304508956%) 
 
 
 
