@@ -272,7 +272,6 @@ foreach($grams as $skey=>&$gramset){
   }
 }
 
-$conn->close(); // disconnect from the database
 
 // Get a list of Unique lexemes
 $unique_lexemes = array_keys(array_count_values($lexemes));
@@ -316,15 +315,35 @@ foreach ($unique_lexemes as $key => &$value)
 }
 // Merge unique lexemes (with tag data) into the lexemes
 foreach($lexemes as $key=>$lexeme){
-  
   // If we have a tag for the word 
   if(array_key_exists($lexeme, $unique_lexemes)){
     $lexemes[$key] = array('lexeme'=>$lexeme, 'tags'=> $unique_lexemes[$lexeme]);
   }else{
-    // The word is unknown/no Bi-gram, Skip-gram or Tri-gram returned
-    $lexemes[$key] = array('lexeme'=>$lexeme, 'tags'=> array('unk'=>'1 : 100%',));
+    // No Bi-gram, Skip-gram or Tri-gram
+
+    // Try to look up the Unigram
+    $sql = "SELECT * FROM `Words` WHERE `Word` = '$lexeme'";
+    $result = $conn->query($sql);
+    if($result->num_rows > 0){// We know this Uni-gram
+      // Collect the tags for the Uni-gram
+      while($row = mysqli_fetch_assoc($result)) {
+		  // Decode Uni-gram tags from json into associtive array
+          $tags = json_decode($row["Tags"], 1);
+          
+          // Sort the tags and compute %
+		  arsort($tags);
+          $sum = array_sum($tags);
+          foreach($tags as $tag=>&$score){
+              $score = $score . ' : ' . ($score/$sum * 100) . '%';
+          }
+		  $lexemes[$key] = array('lexeme'=>$lexeme, 'tags'=> $tags);
+      }
+    }else{ // We don't know this Uni-gram/word
+        $lexemes[$key] = array('lexeme'=>$lexeme, 'tags'=> array('unk'=>'1 : 100%',));
+    }
   }
 }
+$conn->close(); // disconnect from the database
 
 // Echo Original Sentence
 echo 'Sentence: ' . $text . PHP_EOL;
