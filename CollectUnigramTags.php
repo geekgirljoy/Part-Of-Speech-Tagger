@@ -13,9 +13,13 @@ if ($conn->connect_error) {
   die("MYSQL DB Connection failed: " . $conn->connect_error);
 }
 
-// Add additional Tags field to the words table
+// Add additional TagSum & Tags field to the words table
+echo 'Adding TagSum Field.' . PHP_EOL;
+$sql = "ALTER TABLE `Words` ADD `TagSum` int(11) NOT NULL AFTER `Count`";
+$conn->query($sql);
+
 echo 'Adding Tags Field.' . PHP_EOL;
-$sql = "ALTER TABLE `Words` ADD `Tags` TEXT NOT NULL AFTER `Count`";
+$sql = "ALTER TABLE `Words` ADD `Tags` TEXT NOT NULL AFTER `TagSum`";
 $conn->query($sql);
 
 $words = array();
