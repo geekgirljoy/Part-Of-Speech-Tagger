@@ -314,6 +314,7 @@ foreach ($unique_lexemes as $key => &$value)
   
 }
 // Merge unique lexemes (with tag data) into the lexemes
+$in_citation = false;
 foreach($lexemes as $key=>$lexeme){
   // If we have a tag for the word 
   if(array_key_exists($lexeme, $unique_lexemes)){
@@ -339,8 +340,38 @@ foreach($lexemes as $key=>$lexeme){
 		  $lexemes[$key] = array('lexeme'=>$lexeme, 'tags'=> $tags);
       }
     }else{ // We don't know this Uni-gram/word
-        $lexemes[$key] = array('lexeme'=>$lexeme, 'tags'=> array('unk'=>'1 : 100%',));
-    }
+        // Could it be a tag like punctuation or something?
+    
+        // check if lexeme is a quote and convert to open or closed unigram/tag
+        $quotes = array('"', "''", "``");
+        if(in_array($lexeme, $quotes) ){// is this a quote/citation?
+            if($in_citation == true){
+                // this is a close quote
+                $lexeme = "''";
+                $in_citation = false;
+            }else{
+                // this is an open quote
+                $lexeme = "``";
+                $in_citation = true;
+            }
+        }
+    
+        // It's basiclly "do or die" at this point and if the lexeme
+        // can't be located after this it's time to give up and call it an unknown 
+        // lexeme/tag
+        $l = mysqli_real_escape_string($conn, $lexeme);
+        $sql = "SELECT * FROM `Tags` WHERE `Tag` = '$l'";
+        $result = $conn->query($sql);
+
+        if($result->num_rows > 0){// We know this Uni-gram
+            // Collect the tags for the Uni-gram
+            while($row = mysqli_fetch_assoc($result)){
+                $lexemes[$key] = array('lexeme'=>$lexeme, 'tags'=>array($row["Tag"]=>$row["Count"] . ' : 100%'));
+            }
+        }else{ // We don't know this Tag
+            $lexemes[$key] = array('lexeme'=>$lexeme, 'tags'=> array('unk'=>'1 : 100%'));
+        }
+     }
   }
 }
 $conn->close(); // disconnect from the database
@@ -384,27 +415,27 @@ foreach($lexemes as $key=>$lexeme){
 }
 
 
-
-
 /*
  * Results
  * 
  * 
 Sentence: The quick brown fox jumps over the lazy dog. A long-term contract with "zero-liability" protection! Let's think it over.
 
-Tagged Sentence: The/at quick/jj brown/jj fox/np jumps/nns over/in the/at lazy/jj dog/nn ./. A/at long-term/nn contract/vb with/in "/unk zero-liability/unk "/unk protection/nn-hl !/. Let's/vb+ppo think/vb it/ppo over/in ./. 
+Tagged Sentence: The/at quick/jj brown/jj fox/np jumps/nns over/in the/at lazy/jj dog/nn ./. A/at long-term/nn contract/vb with/in ``/`` zero-liability/unk ''/'' protection/nn-hl !/. Let's/vb+ppo think/vb it/ppo over/in ./. 
 
 Tags: 
-12 unique tags, 24 total.
+14 unique tags, 24 total.
 at(3) - 12.50% of the sentence.
 jj(3) - 12.50% of the sentence.
 in(3) - 12.50% of the sentence.
 .(3) - 12.50% of the sentence.
-unk(3) - 12.50% of the sentence.
 nn(2) - 8.33% of the sentence.
 vb(2) - 8.33% of the sentence.
 np(1) - 4.17% of the sentence.
 nns(1) - 4.17% of the sentence.
+``(1) - 4.17% of the sentence.
+unk(1) - 4.17% of the sentence.
+''(1) - 4.17% of the sentence.
 nn-hl(1) - 4.17% of the sentence.
 vb+ppo(1) - 4.17% of the sentence.
 ppo(1) - 4.17% of the sentence.
@@ -463,14 +494,14 @@ nn(2 : 50%)
 in(6 : 85.714285714286%)
 rb(1 : 14.285714285714%) 
 
-["]
-unk(1 : 100%) 
+[``]
+``(8837 : 100%) 
 
 [zero-liability]
 unk(1 : 100%) 
 
-["]
-unk(1 : 100%) 
+['']
+''(8789 : 100%) 
 
 [protection]
 nn-hl(10 : 100%) 
