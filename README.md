@@ -24,7 +24,7 @@ Please note my [Disclaimer](https://github.com/geekgirljoy/Part-Of-Speech-Tagger
 
 * [Test.php](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/Test.php)  - COMING SOON!!!
 
-* [Test.php](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/FastTest.php)  - COMING SOON!!!
+* [FastTest.php](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/FastTest.php)  - COMING SOON!!!
 
 
 # Data files
