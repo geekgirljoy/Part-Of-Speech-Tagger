@@ -34,7 +34,7 @@ There is no need to train your parts of speech tagger from scratch. The data is 
 
 ## CSV
 
-* **[Words.csv**[Disclaimer](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Words.csv) Contains all 56,057 words.
+* **[Words.csv](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Words.csv)** Contains all 56,057 words.
 
 * **[Tags.csv](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Tags.csv)** Contains all 472 tags.
 
