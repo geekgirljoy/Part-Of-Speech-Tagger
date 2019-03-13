@@ -27,9 +27,9 @@ At this point you can Test your Part of Speech Tagger:
 
 # Testing & Tagging
 
-* [Test.php](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/Test.php)  - COMING SOON!!!
+* [Test.php](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/Test.php)
 
-* [FastTest.php](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/FastTest.php)  - COMING SOON!!!
+* [FastTest.php](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/FastTest.php)
 
 
 # Data files
