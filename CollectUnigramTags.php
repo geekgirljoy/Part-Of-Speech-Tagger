@@ -51,7 +51,7 @@ if($result->num_rows > 0){
 
 echo 'Updating Words.' . PHP_EOL;
 foreach($words as $hash=>&$tags){
-    if(count($tags > 0)){
+    if(count($tags) > 0){
         $sum = array_sum($tags); // Count the total number of tags
         $tags = json_encode($tags, 1); // tags data
         
