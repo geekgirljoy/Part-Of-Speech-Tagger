@@ -94,3 +94,8 @@ If you would like a more thorough guide to this project I have a series of blog 
 [Parts of Speech Tagging](https://geekgirljoy.wordpress.com/2018/11/15/parts-of-speech-tagging/)
 
 [Unigrams](https://geekgirljoy.wordpress.com/2018/11/23/unigrams/)
+
+[Finished Prototype](https://geekgirljoy.wordpress.com/2018/12/06/finished-prototype/)
+
+
+
