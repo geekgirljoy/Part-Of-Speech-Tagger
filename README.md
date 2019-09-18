@@ -55,23 +55,23 @@ There is no need to train your parts of speech tagger from scratch. The data is 
 
 ## SQL
 
-* **[Words_Data.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Words_Data.sql)** Contains all 56,057 words.
+* **[Words_Data.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/mysql/Words_Data.sql)** Contains all 56,057 words.
 
-* **[Words_Structure.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Words_Structure.sql)** Contains the structure the Words table.
+* **[Words_Structure.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/mysql/Words_Structure.sql)** Contains the structure the Words table.
 
-* **[Tags_Data.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Tags_Data.sql)** Contains all 472 tags.
+* **[Tags_Data.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/mysql/Tags_Data.sql)** Contains all 472 tags.
 
-* **[Tags_Structure.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Tags_Structure.sql)** Contains the structure the Tags table.
+* **[Tags_Structure.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/mysql/Tags_Structure.sql)** Contains the structure the Tags table.
 
-* **[Trigrams_Data_1.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Trigrams_Data_1.sql)** Contains 0 - 212315 trigrams.
+* **[Trigrams_Data_1.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/mysql/Trigrams_Data_1.sql)** Contains 0 - 212315 trigrams.
 
-* **[Trigrams_Data_2.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Trigrams_Data_2.sql)** Contains 212316 - 424631 trigrams.
+* **[Trigrams_Data_2.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/mysql/Trigrams_Data_2.sql)** Contains 212316 - 424631 trigrams.
 
-* **[Trigrams_Data_3.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Trigrams_Data_3.sql)** Contains 424632 - 636947 trigrams.
+* **[Trigrams_Data_3.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/mysql/Trigrams_Data_3.sql)** Contains 424632 - 636947 trigrams.
 
-* **[Trigrams_Data_4.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Trigrams_Data_4.sql)** Contains 636948 - 849262 trigrams.
+* **[Trigrams_Data_4.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/mysql/Trigrams_Data_4.sql)** Contains 636948 - 849262 trigrams.
 
-* **[Trigrams_Structure.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/csv/Trigrams_Structure.sql)** Contains the structure the Trigrams table.
+* **[Trigrams_Structure.sql](https://github.com/geekgirljoy/Part-Of-Speech-Tagger/blob/master/data/mysql/Trigrams_Structure.sql)** Contains the structure the Trigrams table.
 
 
 
